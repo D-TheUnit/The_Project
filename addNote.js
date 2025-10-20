@@ -35,12 +35,26 @@ function createCard(key, text) {
   delBtn.style.margin = '10px 0 0 0';
 
   delBtn.addEventListener('click', function () {
-    // call delete function in deleteNote.js
     deleteNoteFromStorage(this);
+  });
+
+  // ADD EDIT BUTTON - NEW CODE FOR EDITING FEATURE
+  const editBtn = document.createElement('button');
+  editBtn.className = 'card-btn';
+  editBtn.textContent = 'Edit Note';
+  editBtn.style.height = '29px';
+  editBtn.style.width = '83px';
+  editBtn.style.border = '1px solid #767676';
+  editBtn.style.cursor = 'pointer';
+  editBtn.style.margin = '10px 0 0 10px';
+
+  editBtn.addEventListener('click', function () {
+    editNote(key);
   });
 
   card.appendChild(span);
   card.appendChild(delBtn);
+  card.appendChild(editBtn); // Add edit button to card
   container.appendChild(card);
 }
 
